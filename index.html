@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Molly D. Waymouth, MPH</title>
+  <meta name="description" content="Policy researcher at RAND Corporation specializing in maternal health, health equity, and qualitative methods." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1C2B3A;
+      --terra: #C1603E;
+      --terra-light: #EAC8BC;
+      --bg: #FAF7F2;
+      --sand: #EDE5DA;
+      --sand-dark: #D9CEBF;
+      --text: #1C2B3A;
+      --text-muted: #5A6A78;
+      --text-light: #8A9BAA;
+      --white: #FFFFFF;
+      --border: #DDD5C8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    /* HERO */
+    .hero {
+      padding: 9rem 2.5rem 5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terra);
+    }
+    .hero-divider {
+      width: 56px;
+      height: 3px;
+      background: var(--terra);
+      border-radius: 2px;
+      margin: 1.5rem 0;
+    }
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.75rem;
+    }
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: var(--sand);
+      color: var(--navy);
+      border: 1px solid var(--sand-dark);
+      letter-spacing: 0.02em;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 4rem 2.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 2rem;
+    }
+
+    /* RESEARCH AREAS */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .research-card {
+      background: var(--sand);
+      border: 1px solid var(--sand-dark);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--terra);
+      border-radius: 10px 0 0 10px;
+    }
+    .research-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .research-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* SKILLS */
+    .skills-groups { display: flex; flex-direction: column; gap: 0; }
+    .skills-group {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .skills-group:last-of-type { border-bottom: none; }
+    .skills-group-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--terra);
+      padding-top: 4px;
+      padding-right: 1rem;
+    }
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag {
+      font-size: 0.82rem;
+      padding: 5px 13px;
+      border-radius: 20px;
+      background: var(--sand);
+      border: 1px solid var(--sand-dark);
+      color: var(--navy);
+      line-height: 1.4;
+    }
+    .lang-row {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .lang-chip {
+      font-size: 0.82rem;
+      padding: 5px 13px;
+      border-radius: 20px;
+      background: var(--white);
+      border: 1.5px solid var(--terra-light);
+      color: var(--navy);
+    }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px; top: 8px; bottom: 8px;
+      width: 1.5px;
+      background: var(--sand-dark);
+    }
+    .tl-item { position: relative; margin-bottom: 1.75rem; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -1.22rem;
+      top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2.5px solid var(--bg);
+      box-shadow: 0 0 0 1.5px var(--terra);
+    }
+    .tl-year {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      color: var(--terra);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .tl-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .tl-place {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+    .tl-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.6;
+    }
+
+    /* PUBLICATIONS */
+    .pub-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .pub-tab {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .pub-tab.active {
+      background: var(--terra);
+      color: var(--white);
+      border-color: var(--terra);
+    }
+    .pub-section { display: none; }
+    .pub-section.active { display: block; }
+    .pub-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .pub-badge {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 4px;
+    }
+    .badge-journal { background: #D6EFE8; color: #0D6B52; }
+    .badge-report { background: #D6E5F5; color: #144F8A; }
+    .badge-forthcoming { background: var(--sand); color: var(--terra); }
+
+    /* CONTACT */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .contact-card:hover {
+      border-color: var(--terra);
+      box-shadow: 0 2px 12px rgba(193,96,62,0.1);
+    }
+    .contact-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--sand);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+    .contact-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 0.9rem 1.25rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero { padding: 7rem 1.25rem 3rem; }
+      .section { padding: 3rem 1.25rem; }
+      .contact-wrapper { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Molly Waymouth</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Senior Policy Analyst · RAND Corporation · DrPH Candidate</p>
+  <h1>Molly D.<br><em>Waymouth</em>, MPH</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-bio">
+    Policy researcher with 12 years of experience studying the systems, policies, and people that shape maternal health, reproductive care, and health equity. I specialize in qualitative and mixed methods — designing studies that center the voices most often left out of health policy conversations.
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">Maternal Health</span>
+    <span class="hero-tag">Health Equity</span>
+    <span class="hero-tag">Reproductive Health</span>
+    <span class="hero-tag">Telehealth</span>
+    <span class="hero-tag">Qualitative Methods</span>
+    <span class="hero-tag">Mixed Methods</span>
+    <span class="hero-tag">Randomized Controlled Trials</span>
+  </div>
+</section>
+
+<!-- RESEARCH AREAS -->
+<section id="research" class="section">
+  <p class="section-label">Research Focus</p>
+  <div class="research-grid">
+    <div class="research-card">
+      <h3>Maternal &amp; Reproductive Health</h3>
+      <p>Co-leading the first national RCT of a direct-to-consumer telelactation app; evaluating virtual doula services, remote hypertension monitoring, and contraceptive access.</p>
+    </div>
+    <div class="research-card">
+      <h3>Health Equity &amp; Access</h3>
+      <p>Studying racial and ethnic disparities in breastfeeding support, telehealth access among Medicare and Medicaid beneficiaries, and equity in community-based dementia care.</p>
+    </div>
+    <div class="research-card">
+      <h3>Qualitative Methodology</h3>
+      <p>Developing and refining interview, focus group, and coding frameworks. Passionate about authentic entry approaches and centering marginalized perspectives in research design.</p>
+    </div>
+    <div class="research-card">
+      <h3>Health Policy Evaluation</h3>
+      <p>Evaluating policy reforms across workers' compensation, military mental health confidentiality, ACA implementation, and Medicare ACO patient experiences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+  <p class="section-label">Skills &amp; Methods</p>
+  <div class="skills-groups">
+    <div class="skills-group">
+      <div class="skills-group-label">Research Methods</div>
+      <div class="skills-tags">
+        <span class="skill-tag">Qualitative Methods</span>
+        <span class="skill-tag">Mixed Methods</span>
+        <span class="skill-tag">Semi-structured Interviews</span>
+        <span class="skill-tag">Focus Groups</span>
+        <span class="skill-tag">Coding &amp; Thematic Analysis</span>
+        <span class="skill-tag">Survey Design &amp; Implementation</span>
+        <span class="skill-tag">Cognitive Testing</span>
+        <span class="skill-tag">Scoping Reviews</span>
+        <span class="skill-tag">Literature Reviews</span>
+        <span class="skill-tag">Statistical Analysis</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-label">Tools &amp; Software</div>
+      <div class="skills-tags">
+        <span class="skill-tag">NVivo</span>
+        <span class="skill-tag">Dedoose</span>
+        <span class="skill-tag">R / RStudio</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Covidence</span>
+        <span class="skill-tag">Distiller SR</span>
+        <span class="skill-tag">EndNote</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Microsoft Office Suite</span>
+        <span class="skill-tag">Google Drive / SharePoint</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-label">Project &amp; Program</div>
+      <div class="skills-tags">
+        <span class="skill-tag">Project Management</span>
+        <span class="skill-tag">Budget Oversight</span>
+        <span class="skill-tag">Team Leadership</span>
+        <span class="skill-tag">Stakeholder Engagement</span>
+        <span class="skill-tag">Dashboard Design</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-label">Languages</div>
+      <div class="lang-row">
+        <span class="lang-chip">🇺🇸 English — Fluent</span>
+        <span class="lang-chip">🇪🇸 Spanish — Fluent</span>
+        <span class="lang-chip">🤟 ASL — Conversational</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <p class="section-label">Experience &amp; Education</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Jun 2020 – Present</div>
+      <div class="tl-role">Senior Policy Analyst</div>
+      <div class="tl-place">RAND Corporation · Washington, DC</div>
+      <div class="tl-desc">Co-leading RCTs and qualitative evaluations of telelactation, virtual doula services, and remote hypertension monitoring. Leading mixed-methods maternal health research and health equity evaluations across Medicare and Medicaid populations.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Jun 2016 – Jun 2020</div>
+      <div class="tl-role">Policy Analyst</div>
+      <div class="tl-place">RAND Corporation · Washington, DC</div>
+      <div class="tl-desc">Led mixed-methods evaluations of maternal health interventions including a conditional cash transfer program in Nigeria, postpartum care studies, and Medicare ACO patient experience research.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Sep 2014 – Jun 2016</div>
+      <div class="tl-role">Research Project Associate</div>
+      <div class="tl-place">RAND Corporation · Washington, DC</div>
+      <div class="tl-desc">Contributed to health policy evaluations including California workers' compensation reforms, the 2015 DoD Health Related Behaviors Survey, and ACA implementation studies across eight states.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Jun 2014 – Aug 2014</div>
+      <div class="tl-role">Community Health Educator</div>
+      <div class="tl-place">Ministerio de Salud Pública · Guatemala</div>
+      <div class="tl-desc">Delivered reproductive and maternal health care in a rural clinic, including prenatal care, contraception counseling, and disease screening for pregnant women.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Jun 2013 – Jun 2014</div>
+      <div class="tl-role">Health Insurance Specialist</div>
+      <div class="tl-place">Centers for Medicare &amp; Medicaid Services · Philadelphia, PA</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Sep 2012 – May 2013</div>
+      <div class="tl-role">Health Access Advocate</div>
+      <div class="tl-place">Congreso de Latinos Unidos · Philadelphia, PA</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2012 – 2014</div>
+      <div class="tl-role">Master of Public Health — Health Management, Policy &amp; Epidemiology</div>
+      <div class="tl-place">Drexel University, School of Public Health · Philadelphia, PA</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2005 – 2009</div>
+      <div class="tl-role">BA — Anthropology &amp; Spanish</div>
+      <div class="tl-place">University of Vermont · Burlington, VT</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="section">
+  <p class="section-label">Publications &amp; Reports</p>
+  <div class="pub-tabs">
+    <button class="pub-tab active" onclick="switchPub('peer', this)">Peer-Reviewed</button>
+    <button class="pub-tab" onclick="switchPub('reports', this)">Policy Reports</button>
+    <button class="pub-tab" onclick="switchPub('forthcoming', this)">Forthcoming</button>
+  </div>
+
+  <div id="pub-peer" class="pub-section active">
+    <div class="pub-item">
+      <div class="pub-title">Telelactation services and breastfeeding by race and ethnicity: A randomized clinical trial</div>
+      <div class="pub-meta">Uscher-Pines L, Kapinos K, <strong>Waymouth M</strong>, et al. · <em>JAMA Network Open</em>, 2025. doi:10.1001/jamanetworkopen.2024.61958</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Use of informally-shared human milk in the United States: Secondary analysis of a randomized controlled trial</div>
+      <div class="pub-meta">Demirci JR, <strong>Waymouth M</strong>, Ray KN, et al. · <em>JAMA Network Open</em>, 2025. doi:10.1001/jamanetworkopen.2025.42036</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">The impact of telelactation on breastfeeding satisfaction at 6 months postpartum: Evidence from a randomized controlled trial</div>
+      <div class="pub-meta">DeYoreo M, Kapinos K, <strong>Waymouth M</strong>, et al. · <em>Academic Pediatrics</em>, 2025. doi:10.1016/j.acap.2025.102837</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Obstetricians' experiences with remote monitoring programs for hypertensive disorders</div>
+      <div class="pub-meta">James KF, <strong>Waymouth M</strong>, Alvarado G, et al. · <em>AJOG Global Reports</em>, 2025;5(3):100513</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Advancing equity in maternal health with virtual doula care</div>
+      <div class="pub-meta"><strong>Waymouth M</strong>, James K, Uscher-Pines L · <em>JAMA Health Forum</em>, 2024;5(1):e234833. doi:10.1001/jamahealthforum.2023.4833</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Telelactation use patterns among a racially and ethnically diverse sample of US parents: Secondary analysis of a randomized controlled trial</div>
+      <div class="pub-meta">Kapinos KA, <strong>Waymouth M</strong>, Ray KN, et al. · <em>AJOG MFM</em>, 2024;6(11):101483</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Barriers and facilitators to home- and community-based services access for persons with dementia and their caregivers</div>
+      <div class="pub-meta"><strong>Waymouth M</strong>, Siconolfi D, Friedman EM, et al. · <em>Journal of Gerontology</em>, 2023;78(6):1085–1097</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Acceptability of telelactation services for breastfeeding support among Black parents</div>
+      <div class="pub-meta">Howell K, Alvarado G, <strong>Waymouth M</strong>, et al. · <em>Journal of Medical Internet Research</em>, 2023;25:e50191</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Impact of telelactation services on breastfeeding outcomes: Protocol for the Tele-MILC randomized controlled trial</div>
+      <div class="pub-meta">Uscher-Pines L, Demirci J, <strong>Waymouth M</strong>, et al. · <em>Trials</em>, 2022;23(1):5</div>
+      <span class="pub-badge badge-journal">Journal</span>
+    </div>
+  </div>
+
+  <div id="pub-reports" class="pub-section">
+    <div class="pub-item">
+      <div class="pub-title">DoD Women's Reproductive Health Care Provider Survey</div>
+      <div class="pub-meta">Meadows S, Collins RL, Beckman R, <strong>Waymouth M</strong>, et al. · RAND Corporation, 2025 (forthcoming). RR-A2115-1</div>
+      <span class="pub-badge badge-report">Report</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Update of Gene Therapy Landscape Review and Evidence Map (Viral Vectors, CRISPR, AAV)</div>
+      <div class="pub-meta">Richardson A, Vockley J, Baxi S, <strong>Waymouth M</strong>, et al. · PCORI / RAND Corporation, 2024</div>
+      <span class="pub-badge badge-report">Report</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Perceptions of Mental Health Confidentiality Policies and Practices in the U.S. Military</div>
+      <div class="pub-meta">Wong EC, <strong>Waymouth M</strong>, McBain RK, et al. · RAND Corporation, 2024</div>
+      <span class="pub-badge badge-report">Report</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Research Funding for Women's Health: A Modeling Study of Societal Impact</div>
+      <div class="pub-meta">Baird MD, Zaber MA, Dick AW, <strong>Waymouth M</strong>, et al. · RAND Corporation, 2021</div>
+      <span class="pub-badge badge-report">Report</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">2015 Department of Defense Health Related Behaviors Survey (HRBS)</div>
+      <div class="pub-meta">Meadows S, Engel C, Collins R, <strong>Waymouth M</strong>, et al. · RAND Corporation, 2018</div>
+      <span class="pub-badge badge-report">Report</span>
+    </div>
+  </div>
+
+  <div id="pub-forthcoming" class="pub-section">
+    <div class="pub-item">
+      <div class="pub-title">Key informants' perspectives on current and emerging gene therapies: A qualitative analysis</div>
+      <div class="pub-meta"><strong>Waymouth M</strong>, Miner S, Stapleton P, Apaydin E, Richardson A · <em>Genetics in Medicine Open</em>, 2026</div>
+      <span class="pub-badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Using birth satisfaction to achieve maternal mental health, quality care, and cost savings</div>
+      <div class="pub-meta"><strong>Waymouth M</strong>, James KJ · <em>BMC Pregnancy and Childbirth</em>, 2026</div>
+      <span class="pub-badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Centering the margins in policy practice: Reimagining maternal health equity through shared power</div>
+      <div class="pub-meta">Gittens A, <strong>Waymouth M</strong>, Sousa J, James KJ, Alvarado G · <em>Health Equity</em>, 2026</div>
+      <span class="pub-badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Virtual doula support in the post-pandemic context: Strengths, limitations, and adaptations</div>
+      <div class="pub-meta">Uscher-Pines L, James KJ, <strong>Waymouth M</strong>, et al. · <em>Women's Health Issues</em>, 2025</div>
+      <span class="pub-badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">We are not blank slates: Lessons from an authentic entry approach in qualitative interviews</div>
+      <div class="pub-meta">Alvarado G, <strong>Waymouth M</strong>, Howell K, et al. · <em>International Journal of Social Research Methodology</em>, 2025</div>
+      <span class="pub-badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-item">
+      <div class="pub-title">Part II Update of Gene Therapy Landscape Review (CAR-T, RNAi, ZFN)</div>
+      <div class="pub-meta">Miner S, <strong>Waymouth M</strong>, Richardson A, et al. · RAND Corporation, 2025. PR-A3350-3</div>
+      <span class="pub-badge badge-forthcoming">Forthcoming</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <p class="section-label">Contact &amp; Links</p>
+  <div class="contact-wrapper">
+    <a href="mailto:mwaymouth@rand.org" class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Work Email</div>
+        <div class="contact-value">mwaymouth@rand.org</div>
+      </div>
+    </a>
+    <a href="mailto:molly.d.waymouth@gmail.com" class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Personal Email</div>
+        <div class="contact-value">molly.d.waymouth@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://www.rand.org" target="_blank" class="contact-card">
+      <div class="contact-icon">🏛️</div>
+      <div>
+        <div class="contact-label">Institution</div>
+        <div class="contact-value">RAND Corporation</div>
+      </div>
+    </a>
+    <a href="#" class="contact-card">
+      <div class="contact-icon">🎓</div>
+      <div>
+        <div class="contact-label">Google Scholar</div>
+        <div class="contact-value">View publications</div>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/molly-waymouth" target="_blank" class="contact-card">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">molly-waymouth</div>
+      </div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Washington, DC</div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">🌐</div>
+      <div>
+        <div class="contact-label">Languages</div>
+        <div class="contact-value">English · Spanish · ASL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Molly D. Waymouth, MPH · Senior Policy Analyst, RAND Corporation
+</footer>
+
+<script>
+  function switchPub(type, btn) {
+    document.querySelectorAll('.pub-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('pub-' + type).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
